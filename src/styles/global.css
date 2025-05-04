@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CUPRA Sans Font */
+@font-face {
+  font-family: 'CUPRA Sans';
+  src: url('/assets/fonts/CupraSans-Regular.woff2') format('woff2'),
+       url('/assets/fonts/CupraSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CUPRA Sans';
+  src: url('/assets/fonts/CupraSans-Bold.woff2') format('woff2'),
+       url('/assets/fonts/CupraSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --cupra-red: #ff0000;
+  --cupra-dark: #000000;
+  --cupra-light: #ffffff;
+}
+
+/* Base Styles */
+body {
+  font-family: 'CUPRA Sans', sans-serif;
+  @apply bg-black text-white;
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cupra-red);
+}
+
+/* Custom utility classes */
+.text-cupra-red {
+  color: var(--cupra-red);
+}
+
+.bg-cupra-red {
+  background-color: var(--cupra-red);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.3s ease;
+}
