@@ -8,18 +8,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Actualizado a v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4  # Actualizado a v4
         with:
-          node-version: 18
+          node-version: 20  # Recomendado usar Node 20 ahora
           
       - run: npm install
       - run: npm run build
       
       - uses: actions/upload-pages-artifact@v2
         with:
-          path: 'build/'  # Usa barra al final para ser explícito
+          path: 'build/'
 
   deploy:
     needs: build
@@ -32,4 +32,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-      - uses: actions/deploy-pages@v2
+      - uses: actions/deploy-pages@v3  # Actualizado a v3
