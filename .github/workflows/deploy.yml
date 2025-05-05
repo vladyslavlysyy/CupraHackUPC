@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Subir carpeta build para Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./build  # Cambia a ./dist si se usa Vite
 
