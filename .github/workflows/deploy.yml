@@ -26,7 +26,7 @@ jobs:
       - name: Subir carpeta build para Pages
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./build  # Cambia a ./dist si se usa Vite
+          path: ./build 
 
   deploy:
     needs: build
