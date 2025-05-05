@@ -1,0 +1,42 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Crear la versión para producción
+        run: npm run build
+
+      - name: Subir carpeta build para Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build  # Cambia a ./dist si se usa Vite
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Desplegar a GitHub Pages
+        uses: actions/deploy-pages@v2
