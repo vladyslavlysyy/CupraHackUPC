@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
             CUPRA Experience
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up animation-delay-300">
-           Discover the new generation of sports vehicles          </p>
+           Discover the new generation of Cupra vehicles          </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-600">
             <a 
               href="#models" 
